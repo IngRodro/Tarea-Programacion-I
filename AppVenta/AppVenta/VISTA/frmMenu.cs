@@ -20,13 +20,20 @@ namespace AppVenta.VISTA
         private void rOLESToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRoles rol = new frmRoles();
+            rol.MdiParent = this;
             rol.Show();
         }
 
         private void uSUARIOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmUsuarios user = new frmUsuarios();
+            user.MdiParent = this;
             user.Show();
+        }
+
+        private void frmMenu_Load(object sender, EventArgs e)
+        {
+            IsMdiContainer = true;
         }
     }
 }
