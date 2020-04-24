@@ -35,5 +35,12 @@ namespace AppVenta.VISTA
         {
             IsMdiContainer = true;
         }
+        public static FrmVentas FV = new FrmVentas();
+
+        private void vENDERToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FV.MdiParent = this;
+            FV.Show();
+        }
     }
 }

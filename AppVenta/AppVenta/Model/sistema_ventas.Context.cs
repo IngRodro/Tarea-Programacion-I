@@ -27,5 +27,11 @@ namespace AppVenta.Model
     
         public virtual DbSet<tb_usuarios> tb_usuarios { get; set; }
         public virtual DbSet<roles_usuario> roles_usuario { get; set; }
+        public virtual DbSet<detalleVenta> detalleVentas { get; set; }
+        public virtual DbSet<producto> productoes { get; set; }
+        public virtual DbSet<tb_cliente> tb_cliente { get; set; }
+        public virtual DbSet<tb_documento> tb_documento { get; set; }
+        public virtual DbSet<tb_venta> tb_venta { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

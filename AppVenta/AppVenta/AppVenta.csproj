@@ -61,6 +61,12 @@
     <Compile Include="frmLogueo.Designer.cs">
       <DependentUpon>frmLogueo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\detalleVenta.cs">
+      <DependentUpon>sistema_ventas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\producto.cs">
+      <DependentUpon>sistema_ventas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\roles_usuario.cs">
       <DependentUpon>sistema_ventas.tt</DependentUpon>
     </Compile>
@@ -79,11 +85,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>sistema_ventas.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>sistema_ventas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tb_cliente.cs">
+      <DependentUpon>sistema_ventas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tb_documento.cs">
+      <DependentUpon>sistema_ventas.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\tb_usuarios.cs">
+      <DependentUpon>sistema_ventas.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\tb_venta.cs">
       <DependentUpon>sistema_ventas.tt</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VISTA\Formularios de Busqueda\FrmBusqueda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\Formularios de Busqueda\FrmBusqueda.Designer.cs">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </Compile>
     <Compile Include="VISTA\frmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +126,12 @@
     <Compile Include="VISTA\frmUsuarios.Designer.cs">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="VISTA\FrmVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VISTA\FrmVentas.Designer.cs">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmLogueo.resx">
       <DependentUpon>frmLogueo.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +144,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VISTA\Formularios de Busqueda\FrmBusqueda.resx">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VISTA\frmMenu.resx">
       <DependentUpon>frmMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -122,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VISTA\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="VISTA\FrmVentas.resx">
+      <DependentUpon>FrmVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="Model\sistema_ventas.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
