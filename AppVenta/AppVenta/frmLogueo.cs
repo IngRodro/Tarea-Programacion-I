@@ -30,7 +30,8 @@ namespace AppVenta
 
                 if (lista.Count() > 0)
                 {
-                    frmMenu menu = new frmMenu();
+                    String User = txtUsuario.Text;
+                    frmMenu menu = new frmMenu(User);
                     menu.Show();
                     this.Hide();
                 }

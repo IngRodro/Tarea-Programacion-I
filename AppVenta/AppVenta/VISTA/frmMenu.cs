@@ -12,11 +12,14 @@ namespace AppVenta.VISTA
 {
     public partial class frmMenu : Form
     {
-        public frmMenu()
+        public frmMenu(String User)
         {
             InitializeComponent();
+
+            this.User = User;
         }
 
+        String User;
         private void rOLESToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRoles rol = new frmRoles();
@@ -35,10 +38,11 @@ namespace AppVenta.VISTA
         {
             IsMdiContainer = true;
         }
-        public static FrmVentas FV = new FrmVentas();
 
+        public static FrmVentas FV = new FrmVentas();
         private void vENDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FV.User = User;
             FV.MdiParent = this;
             FV.Show();
         }

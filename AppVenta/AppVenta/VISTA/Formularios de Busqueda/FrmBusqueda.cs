@@ -56,6 +56,7 @@ namespace AppVenta.VISTA.Formularios_de_Busqueda
             frmMenu.FV.txtCantidad.Focus();
             frmMenu.FV.txtTotal.Text =
                 Convert.ToString(Double.Parse(Precio) * Double.Parse(frmMenu.FV.txtCantidad.Text));
+            frmMenu.FV.txtBusqueda.Text = "";
             this.Close();
         }
 

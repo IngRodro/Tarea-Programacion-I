@@ -17,24 +17,45 @@ namespace AppVenta.VISTA
         public FrmVentas()
         {
             InitializeComponent();
-        }
-
+        } 
+        public String User;
+        int idUsuario;
         private void FrmVentas_Load(object sender, EventArgs e)
         {
             CargarCombo();
             Retornoid();
+            RetornoidUsuario();
             CargarTotal();
         }
+        void RetornoidUsuario()
+        {
+            using (sistema_ventasEntities db = new sistema_ventasEntities())
+            {
+                var IdUsuario = from tbusua in db.tb_usuarios
+                    where tbusua.email == User
 
+                    select new
+                    {
+                        Id = tbusua.Id
+                    };
+                foreach (var iteraridUsuario in IdUsuario)
+                {
+                    idUsuario = iteraridUsuario.Id;
+                }
+            }
+        }
         void Retornoid()
         {
             using (sistema_ventasEntities db = new sistema_ventasEntities())
             {
+
                 var tb_v = db.tb_venta;
+                txtIdVenta.Text = "1";
                 foreach (var iterardatostbVentas in tb_v)
                 {
-                    txtIdVenta.Text = iterardatostbVentas.idVenta.ToString();
-                   // dvgUsuarios.Rows.Add(iterardatostbUsuario.Id, iterardatostbUsuario.email, iterardatostbUsuario.contrasena);
+                    int IdVenta = iterardatostbVentas.idVenta;
+                    int suma = IdVenta + 1;
+                    txtIdVenta.Text = suma.ToString();
                 }
             }
         }
@@ -132,5 +153,44 @@ namespace AppVenta.VISTA
             CargarTotal();
         }
 
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            using (sistema_ventasEntities bd = new sistema_ventasEntities())
+            {
+                tb_venta tb_v = new tb_venta();
+
+                String ComboDoc = cmbTipoDoc.SelectedValue.ToString();
+                String ComboCliente = cmbClientes.SelectedValue.ToString();
+                tb_v.idDocumento = Convert.ToInt32(ComboDoc);
+                tb_v.iDCliente = Convert.ToInt32(ComboCliente);
+                tb_v.iDUsuario = idUsuario;
+                tb_v.totalVenta = Convert.ToDecimal(txtTotalPago.Text);
+                tb_v.fecha = Convert.ToDateTime(dtpFecha.Text);
+
+                bd.tb_venta.Add(tb_v);
+                bd.SaveChanges();
+
+                detalleVenta dV = new detalleVenta();
+
+                for (int i = 0; i < dvgVentas.Rows.Count; i++)
+                {
+                    String idProducto = dvgVentas.Rows[i].Cells[0].Value.ToString();
+                    String precio = dvgVentas.Rows[i].Cells[2].Value.ToString();
+                    String cantidad = dvgVentas.Rows[i].Cells[3].Value.ToString();
+                    String total = dvgVentas.Rows[i].Cells[4].Value.ToString();
+;                   dV.idVenta = Convert.ToInt32(txtIdVenta.Text);
+                    dV.idProducto = Convert.ToInt32(idProducto);
+                    dV.cantidad = Convert.ToInt32(cantidad);
+                    dV.precio = Convert.ToDecimal(precio);
+                    dV.total = Convert.ToDecimal(total);
+
+                    bd.detalleVentas.Add(dV);
+                    bd.SaveChanges();
+                }
+
+            }
+            dvgVentas.ClearSelection();
+
+        }
     }
 }
