@@ -42,7 +42,7 @@ namespace AppVenta.VISTA
         public static FrmVentas FV = new FrmVentas();
         private void vENDERToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FV.User = User;
+            FV.User = User;.
             FV.MdiParent = this;
             FV.Show();
         }
