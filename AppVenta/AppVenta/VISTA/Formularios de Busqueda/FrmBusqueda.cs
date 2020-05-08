@@ -14,10 +14,9 @@ namespace AppVenta.VISTA.Formularios_de_Busqueda
 {
     public partial class FrmBusqueda : Form
     {
-        public FrmBusqueda(TextBox Busqueda)
+        public FrmBusqueda()
         {
             InitializeComponent();
-            txtBusqueda.Text = Busqueda.Text;
         }
 
         private void FrmBusqueda_Load(object sender, EventArgs e)
@@ -56,7 +55,7 @@ namespace AppVenta.VISTA.Formularios_de_Busqueda
             frmMenu.FV.txtCantidad.Focus();
             frmMenu.FV.txtTotal.Text =
                 Convert.ToString(Double.Parse(Precio) * Double.Parse(frmMenu.FV.txtCantidad.Text));
-            frmMenu.FV.txtBusqueda.Text = "";
+            frmMenu.FV.txtBusquedaCodigo.Text = "";
             this.Close();
         }
 

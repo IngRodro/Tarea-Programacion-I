@@ -79,9 +79,7 @@ namespace AppVenta.VISTA
 
         private void button2_Click(object sender, EventArgs e)
         {
-            TextBox Busqueda;
-            Busqueda = txtBusqueda;
-            FrmBusqueda FB = new FrmBusqueda(Busqueda);
+            FrmBusqueda FB = new FrmBusqueda();
             FB.Show();
             
         }
@@ -89,22 +87,17 @@ namespace AppVenta.VISTA
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtIdProd.Text != "" && txtNombreProd.Text != "" && txtPrecioProd.Text != "")
-            {
+           
                 dvgVentas.Rows.Add(txtIdProd.Text, txtNombreProd.Text,
                     txtPrecioProd.Text, txtCantidad.Text, txtTotal.Text);
                 LimpiarCeldas();
-            }else
-            {
-                MessageBox.Show("Los Campos no pueden estar vacíos");
-            }
-            
+
         }
 
 
         void CargarTotal()
         {
-            double Total = 0;
+            double Total = 0.00;
             for (int i = 0; i < dvgVentas.Rows.Count; i++)
             {
                 Total += Double.Parse(dvgVentas.Rows[i].Cells[4].Value.ToString());
@@ -141,15 +134,13 @@ namespace AppVenta.VISTA
             }
             catch (Exception ex)
             {
-                txtCantidad.Text = "0";
-                MessageBox.Show("No puedes operar datos menores a 0");
+                txtCantidad.Text = "1";
                 txtCantidad.Select();
             }
         }
 
         private void dvgVentas_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-
             CargarTotal();
         }
 
@@ -189,8 +180,57 @@ namespace AppVenta.VISTA
                 }
 
             }
-            dvgVentas.ClearSelection();
-
+            dvgVentas.Rows.Clear();
+            Retornoid();
+            txtTotalPago.Text = "0.00";
         }
+        private void txtBusquedaCodigo_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtBusquedaCodigo.Text == "")
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    btnBuscar.PerformClick();
+                }
+            }
+            else if (e.KeyCode == Keys.Enter)
+            {
+                using (sistema_ventasEntities bd = new sistema_ventasEntities())
+                {
+                    producto pr = new producto();
+                    int buscar = int.Parse(txtBusquedaCodigo.Text);
+                    pr = bd.productoes.Where(idBuscar => idBuscar.idProducto == buscar).First();
+                    txtIdProd.Text = Convert.ToString(pr.idProducto);
+                    txtNombreProd.Text = Convert.ToString(pr.nombreProducto);
+                    txtPrecioProd.Text = Convert.ToString(pr.precioProducto);
+                    Calculo();
+                    txtCantidad.Focus();
+                    txtBusquedaCodigo.Text = "";
+                    
+                }
+            }
+        }
+
+        int Intentos = 1;
+        private void txtCantidad_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (Intentos == 2)
+                {
+                    btnAgregar.PerformClick();
+                    LimpiarCeldas();
+                    txtBusquedaCodigo.Focus();
+                    Intentos = 0;
+                }
+                Intentos += 1;
+            }
+
+            
+        }
+
+        
+
+        
     }
 }

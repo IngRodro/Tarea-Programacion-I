@@ -34,7 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.txtBusquedaCodigo = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtIdProd = new System.Windows.Forms.TextBox();
@@ -117,12 +117,13 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Buscar Producto:";
             // 
-            // txtBusqueda
+            // txtBusquedaCodigo
             // 
-            this.txtBusqueda.Location = new System.Drawing.Point(151, 156);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(454, 20);
-            this.txtBusqueda.TabIndex = 7;
+            this.txtBusquedaCodigo.Location = new System.Drawing.Point(151, 156);
+            this.txtBusquedaCodigo.Name = "txtBusquedaCodigo";
+            this.txtBusquedaCodigo.Size = new System.Drawing.Size(454, 20);
+            this.txtBusquedaCodigo.TabIndex = 7;
+            this.txtBusquedaCodigo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBusquedaCodigo_KeyUp);
             // 
             // label5
             // 
@@ -206,6 +207,7 @@
             this.txtCantidad.TabIndex = 16;
             this.txtCantidad.Text = "1";
             this.txtCantidad.TextChanged += new System.EventHandler(this.txtCantidad_TextChanged);
+            this.txtCantidad.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtCantidad_KeyUp);
             // 
             // txtTotal
             // 
@@ -385,7 +387,6 @@
             // 
             // FrmVentas
             // 
-            this.AcceptButton = this.btnAgregar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -413,7 +414,7 @@
             this.Controls.Add(this.txtIdProd);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.txtBusqueda);
+            this.Controls.Add(this.txtBusquedaCodigo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -463,7 +464,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox4;
-        public System.Windows.Forms.TextBox txtBusqueda;
+        public System.Windows.Forms.TextBox txtBusquedaCodigo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DateTimePicker dtpFecha;
         private System.Windows.Forms.Label label11;
