@@ -35,5 +35,10 @@ namespace AppVenta.VISTA
                 dtVistaRoles.DataSource = jointables.ToList();
             }
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

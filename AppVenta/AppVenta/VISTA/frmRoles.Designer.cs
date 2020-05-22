@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.dtVistaRoles = new System.Windows.Forms.DataGridView();
+            this.btnCerrar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtVistaRoles)).BeginInit();
             this.SuspendLayout();
             // 
@@ -36,10 +37,22 @@
             // 
             this.dtVistaRoles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dtVistaRoles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtVistaRoles.Location = new System.Drawing.Point(69, 53);
+            this.dtVistaRoles.Location = new System.Drawing.Point(70, 58);
             this.dtVistaRoles.Name = "dtVistaRoles";
             this.dtVistaRoles.Size = new System.Drawing.Size(652, 333);
             this.dtVistaRoles.TabIndex = 0;
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.btnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCerrar.Location = new System.Drawing.Point(724, 0);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(75, 23);
+            this.btnCerrar.TabIndex = 33;
+            this.btnCerrar.Text = "Cerrar";
+            this.btnCerrar.UseVisualStyleBackColor = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
             // 
             // frmRoles
             // 
@@ -47,6 +60,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.dtVistaRoles);
             this.Name = "frmRoles";
             this.Text = "Roles";
@@ -59,5 +74,6 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dtVistaRoles;
+        private System.Windows.Forms.Button btnCerrar;
     }
 }

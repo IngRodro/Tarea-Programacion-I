@@ -20,16 +20,17 @@ namespace AppVenta.VISTA
         }
 
         String User;
+
+        public static frmRoles rol = new frmRoles();
         private void rOLESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmRoles rol = new frmRoles();
             rol.MdiParent = this;
             rol.Show();
         }
 
+        public static frmUsuarios user = new frmUsuarios();
         private void uSUARIOSToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUsuarios user = new frmUsuarios();
             user.MdiParent = this;
             user.Show();
         }

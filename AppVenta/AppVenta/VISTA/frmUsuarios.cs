@@ -93,5 +93,10 @@ namespace AppVenta.VISTA
             txtUsuario.Text = email;
             txtPass.Text = pass;
         }
+
+        private void btnCerrar_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }
