@@ -233,5 +233,15 @@ namespace AppVenta.VISTA
         {
             this.Hide();
         }
+
+        private void dvgVentas_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            CargarTotal();  
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            dvgVentas.Rows.Remove(dvgVentas.CurrentRow);
+        }
     }
 }

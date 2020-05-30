@@ -145,6 +145,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="VISTA\Formularios de Busqueda\FrmBusqueda.resx">
       <DependentUpon>FrmBusqueda.cs</DependentUpon>
@@ -193,6 +194,11 @@
       <DependentUpon>sistema_ventas.edmx</DependentUpon>
       <LastGenOutput>sistema_ventas.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\f2895840fbcdc23aa9167e02c1b41b8a-icono-de-llave-plana-by-vexels.png" />
+    <None Include="Resources\16363.png" />
+    <None Include="Resources\documento-png-5.png" />
+    <None Include="Resources\customer-service-1433639_1920.png" />
+    <None Include="Resources\icono-de-ventas-png-5.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
